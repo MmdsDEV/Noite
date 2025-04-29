@@ -17,274 +17,270 @@
       -webkit-tap-highlight-color: transparent;
     }
     
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
     body {
       font-family: 'Poppins', sans-serif;
       background: radial-gradient(circle at center, #192233, #000);
       color: white;
-      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
     }
     
-    /* Container do card */
+    /* Container do card - agora ocupa toda a tela */
     .container {
-      width: 100%;
-      max-width: 800px;
-    }
-    
-    /* Card principal */
-    .movie-card {
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      aspect-ratio: 16/9;
-      max-width: 100%;
-      background: #000;
-      transition: transform 0.3s ease;
-    }
-    
-    /* Imagem do churrasco */
-    .movie-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-    
-    /* Overlay para texto */
-    .movie-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 60%;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    }
-    
-    /* Conteúdo do convite */
-    .content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px;
-      z-index: 2;
-      color: white;
-    }
-    
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-      color: #ffcf0f;
-    }
-    
-    .infos {
-      font-size: 1rem;
-      margin-bottom: 15px;
-      color: #ddd;
-    }
-    
-    .details {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
-    
-    /* Localização */
-    .location {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 10px 0;
-      font-size: 0.9rem;
-    }
-    
-    .location i {
-      color: #ffcf0f;
-    }
-    
-    /* Botões */
-    .action-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    
-    .btn {
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: none;
-    }
-    
-    .btn-primary {
-      background: #ffcf0f;
-      color: #000;
-    }
-    
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    
-    /* Contador regressivo */
-    .countdown {
-      display: flex;
-      gap: 8px;
-      margin: 15px 0;
-    }
-    
-    .countdown-item {
-      background: rgba(255,207,15,0.2);
-      padding: 5px 10px;
-      border-radius: 5px;
-      text-align: center;
-      min-width: 50px;
-    }
-    
-    .countdown-number {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #ffcf0f;
-    }
-    
-    /* Mensagem de hover */
-    .hover-message {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.85);
-      color: #ffcf0f;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-      pointer-events: none;
-      width: 80%;
-      max-width: 300px;
-      border: 2px solid #ffcf0f;
-    }
-    
-    .movie-card:hover .hover-message {
-      opacity: 1;
-    }
-    
-    /* Modal WhatsApp */
-    .whatsapp-modal {
-      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.8);
+      perspective: 1000px;
+      overflow: hidden;
+    }
+    
+    /* Card principal - ocupa toda a tela */
+    .movie-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      transition: all 0.5s ease;
+    }
+    
+    /* Imagem do churrasco - agora cobre toda a tela */
+    .movie-card img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    
+    /* Overlay para texto - ajustado para cobrir toda a altura */
+    .movie-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, 
+                                transparent 0%, 
+                                rgba(0,0,0,0.3) 30%, 
+                                rgba(0,0,0,0.7) 60%, 
+                                rgba(0,0,0,0.9) 100%);
+      z-index: 1;
+    }
+    
+    /* Conteúdo do convite - posicionado na parte inferior */
+    .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 25px;
+      z-index: 2;
+      color: white;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffcf0f;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      font-weight: 700;
+    }
+    
+    .infos {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #eee;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .infos span {
+      background: rgba(255,207,15,0.15);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 1rem;
+    }
+    
+    .details {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+    
+    .location i {
+      color: #ffcf0f;
+      font-size: 1.3rem;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .btn {
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #ffcf0f, #ff9900);
+      color: #000;
+      box-shadow: 0 5px 20px rgba(255,207,15,0.5);
+    }
+    
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    /* Contador regressivo centralizado */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    
+    .countdown-item {
+      background: rgba(0,0,0,0.5);
+      padding: 12px 15px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 70px;
+      border: 1px solid rgba(255,207,15,0.3);
+    }
+    
+    .countdown-number {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffcf0f;
+    }
+    
+    /* Mensagem flutuante removida para versão fullscreen */
+    
+    /* Modal WhatsApp ajustado */
+    .whatsapp-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
       z-index: 100;
+      display: none;
       justify-content: center;
       align-items: center;
     }
     
     .whatsapp-modal-content {
-      background: #1e1e1e;
-      padding: 25px;
+      background: #111;
+      padding: 30px;
       border-radius: 15px;
       width: 90%;
-      max-width: 400px;
+      max-width: 500px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      border: 1px solid #ffcf0f;
-    }
-    
-    .whatsapp-link {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      margin: 20px 0 15px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    
-    .whatsapp-link:hover {
-      background: #128C7E;
-      transform: translateY(-2px);
-    }
-    
-    .whatsapp-link i {
-      margin-right: 8px;
-    }
-    
-    .close-modal {
-      background: transparent;
-      color: #ffcf0f;
-      border: 1px solid #ffcf0f;
-      padding: 8px 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .close-modal:hover {
-      background: rgba(255,207,15,0.2);
+      border: 2px solid #ffcf0f;
     }
     
     /* Responsivo */
     @media (max-width: 768px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       
-      .details {
-        font-size: 0.8rem;
+      .infos, .details, .location {
+        font-size: 1rem;
+      }
+      
+      .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
+      
+      .countdown-item {
+        min-width: 60px;
+        padding: 10px;
+      }
+      
+      .countdown-number {
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .content {
+        padding: 20px 15px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
       }
       
       .action-buttons {
         flex-direction: column;
+        gap: 10px;
       }
       
-      .btn {
-        justify-content: center;
+      .countdown {
+        gap: 10px;
       }
       
-      .whatsapp-modal-content {
-        padding: 20px;
+      .countdown-item {
+        min-width: 50px;
+        padding: 8px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container animate__animated animate__fadeIn">
+  <div class="container">
     <div class="movie-card">
-      <img src="churras.jpeg" alt="Churras do MJ">
-      
-      <div class="hover-message animate__animated">
-        Não perca essa festa abençoada! 🎉
-      </div>
+      <!-- Imagem principal cobrindo toda a tela -->
+      <img src="D:\Sites.html\convite\mj,adoracao\churras.jpeg" alt="Churras do MJ">
       
       <div class="content">
         <h1>CHURRAS DO MJ <span>🍖🔥</span></h1>
         <div class="infos">
           <span>Quinta-feira • 18h</span>
+          <span>🎵 🍗 🍻</span>
         </div>
         
         <div class="details">
-          <p>Vamos celebrar a vida e a comunhão com um churrasco abençoado! Traga sua alegria e seu apetite! <span>🙌</span></p>
+          <p>Vamos celebrar a vida e a comunhão com um churrasco abençoado! Traga sua alegria, seu apetite e muita energia positiva! <span>🙌</span></p>
           
           <div class="location">
             <i class="fas fa-map-marker-alt"></i>
@@ -333,19 +329,23 @@
     <div class="whatsapp-modal-content">
       <h3 style="color: #ffcf0f; margin-bottom: 15px;">Confirmar Presença</h3>
       <p style="margin-bottom: 10px;">Clique no botão abaixo para confirmar sua presença no grupo do WhatsApp:</p>
-      <p style="font-size: 0.9em; color: #aaa; margin-bottom: 20px;">Você será redirecionado para o grupo oficial do evento</p>
       
-      <a href="#" class="whatsapp-link" id="whatsappListLink">
-        <i class="fab fa-whatsapp"></i> Confirmar no WhatsApp
+      <a href="#" class="btn btn-primary" id="whatsappListLink" style="display: inline-flex; text-decoration: none;">
+        <i class="fab fa-whatsapp"></i> ENTRAR NO GRUPO
       </a>
       
-      <button class="close-modal" onclick="closeModal()">Fechar</button>
+      <button class="btn btn-secondary" onclick="closeModal()" style="margin-top: 20px;">
+        Fechar
+      </button>
     </div>
   </div>
 
   <script>
+    // Data do evento
+    const eventDate = new Date('2025-05-01T18:00:00');
+    
     // Contador regressivo
-    function updateCountdown(eventDate) {
+    function updateCountdown() {
       const now = new Date();
       const diff = eventDate - now;
       
@@ -368,88 +368,32 @@
       document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
     }
 
-    // Configura data do evento (próxima quinta às 18h)
-    function setupCountdown() {
-      const now = new Date();
-      const eventDate = new Date();
-      
-      eventDate.setDate(now.getDate() + ((4 + 7 - now.getDay()) % 7));
-      eventDate.setHours(18, 0, 0, 0);
-      
-      if (now > eventDate) {
-        eventDate.setDate(eventDate.getDate() + 7);
-      }
-      
-      setInterval(() => updateCountdown(eventDate), 1000);
-      updateCountdown(eventDate);
-    }
-
-    // Efeito hover para desktop
-    function setupHoverEffect() {
-      const card = document.querySelector('.movie-card');
-      const hoverMsg = document.querySelector('.hover-message');
-      
-      card.addEventListener('mouseenter', () => {
-        hoverMsg.classList.add('animate__fadeIn');
-        hoverMsg.classList.remove('animate__fadeOut');
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        hoverMsg.classList.remove('animate__fadeIn');
-        hoverMsg.classList.add('animate__fadeOut');
-      });
-      
-      // Para mobile: toque mostra a mensagem
-      card.addEventListener('click', () => {
-        hoverMsg.classList.toggle('animate__fadeIn');
-      });
-    }
-
-    // Função para confirmar presença via WhatsApp
+    // Funções do modal
     function confirmPresence() {
-      // LINK DO SEU GRUPO DO WHATSAPP - SUBSTITUA PELO LINK REAL
-      const whatsappGroupLink = "https://chat.whatsapp.com/DMoTNHWH0mj3eums98vMFM";
-      
-      // Atualiza o link no modal
-      document.getElementById('whatsappListLink').href = whatsappGroupLink;
-      
-      // Mostra o modal
+      document.getElementById('whatsappListLink').href = "https://chat.whatsapp.com/DMoTNHWH0mj3eums98vMFM";
       document.getElementById('whatsappModal').style.display = 'flex';
-      
-      // Opcional: Redirecionar diretamente sem mostrar o modal
-      // window.open(whatsappGroupLink, '_blank');
     }
     
     function closeModal() {
       document.getElementById('whatsappModal').style.display = 'none';
     }
-
-    // Compartilhar evento
+    
     function shareEvent() {
       if (navigator.share) {
         navigator.share({
           title: 'Churras do MJ',
-          text: 'Venha para o Churras do MJ - Quinta-feira às 18h',
+          text: 'Venha para o Churras do MJ!',
           url: window.location.href
         });
       } else {
-        // Fallback para WhatsApp
-        const text = encodeURIComponent('Venha para o Churras do MJ! Quinta-feira às 18h na casa da Bárbara e do Rafael. ' + window.location.href);
-        window.open(`https://wa.me/?text=${text}`, '_blank');
+        window.open(`https://wa.me/?text=${encodeURIComponent('Venha para o Churras do MJ!')}`, '_blank');
       }
     }
 
     // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
-      setupCountdown();
-      setupHoverEffect();
-      
-      // Fechar modal ao clicar fora
-      document.getElementById('whatsappModal').addEventListener('click', (e) => {
-        if (e.target === document.getElementById('whatsappModal')) {
-          closeModal();
-        }
-      });
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
     });
   </script>
 </body>
