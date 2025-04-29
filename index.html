@@ -2,244 +2,268 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Meta tags otimizadas para iOS -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Churras MJ">
   <title>Churras do MJ - Comunhão e Alegria</title>
-  
-  <!-- Favicon para Apple -->
-  <link rel="apple-touch-icon" href="icon.png">
-  
-  <!-- CSS Externos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <style>
-    /* Reset CSS para iOS */
+    /* Reset e estilos base */
     * {
-      -webkit-tap-highlight-color: transparent;
-      -webkit-touch-callout: none;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-    }
-    
-    html {
-      -webkit-text-size-adjust: 100%;
-      -webkit-font-smoothing: antialiased;
-      height: 100%;
-      font-size: 62.5%;
+      -webkit-tap-highlight-color: transparent;
     }
     
     body {
-      -webkit-overflow-scrolling: touch;
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      font-family: "Rubik", sans-serif;
-      font-size: 170%;
-      background: radial-gradient(circle at 50% 50%, #192233 20%, #000);
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #192233, #000);
       color: white;
-      line-height: 1.5;
-    }
-
-    /* Variáveis de cor */
-    :root {
-      --color-gold: #ffcf0f;
-      --color-gold-dark: #e6b800;
-      --color-text: white;
-      --color-bg: rgba(0, 0, 0, 0.7);
-      --shadow-lg: 0 16px 24px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Container principal */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      padding: 2rem;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px;
     }
-
-    /* Card do convite */
+    
+    /* Container do card */
+    .container {
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    /* Card principal */
     .movie-card {
-      --transition-duration: 700ms;
       position: relative;
-      border-radius: 0.6em;
+      border-radius: 15px;
       overflow: hidden;
-      font-size: 120%;
-      height: min(21em, 80vh);
-      max-width: 95vw;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       aspect-ratio: 16/9;
-      box-shadow: var(--shadow-lg);
-      transition: transform var(--transition-duration);
-      font-family: 'Poppins', sans-serif;
-      background-color: black;
-      -webkit-backface-visibility: hidden;
-      -webkit-transform: translateZ(0);
+      max-width: 100%;
+      background: #000;
+      transition: transform 0.3s ease;
     }
-
-    /* Imagem de fundo - ajuste para iOS */
+    
+    /* Imagem do churrasco */
     .movie-card img {
-      position: absolute;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position: center;
-      top: 0;
-      left: 0;
-      -webkit-user-drag: none;
+      display: block;
     }
-
-    /* Overlay para melhor legibilidade */
+    
+    /* Overlay para texto */
     .movie-card::after {
-      content: "";
+      content: '';
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
-      mix-blend-mode: multiply;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     }
-
+    
     /* Conteúdo do convite */
     .content {
-      z-index: 2;
       position: absolute;
-      bottom: min(2.5em, 6vmin);
-      left: min(3em, 8vmin);
-      right: min(3em, 8vmin);
-      text-align: left;
-      transition: transform var(--transition-duration) var(--ease-in-out);
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      z-index: 2;
+      color: white;
     }
-
-    .movie-card h1 {
-      font-size: 1.8em;
-      color: var(--color-text);
-      margin: 0 0 0.3em 0;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      color: #ffcf0f;
     }
-
+    
     .infos {
-      font-size: 0.8em;
-      font-weight: bold;
-      color: var(--color-gold);
-      display: flex;
-      gap: 0.35em;
-      align-items: flex-end;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #ddd;
     }
-
-    .synopsis {
-      font-size: 0.8em;
-      line-height: 1.4;
-      margin-block: 0.75em;
+    
+    .details {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
     }
-
-    /* Elementos de informação */
+    
+    /* Localização */
     .location {
       display: flex;
       align-items: center;
-      gap: 0.5em;
-      margin-top: 0.5em;
-      font-size: 0.8em;
+      gap: 8px;
+      margin: 10px 0;
+      font-size: 0.9rem;
     }
-
+    
     .location i {
-      font-size: 1.2em;
-      color: var(--color-gold);
+      color: #ffcf0f;
     }
-
+    
     /* Botões */
     .action-buttons {
       display: flex;
-      gap: 1em;
-      margin-top: 1em;
+      gap: 10px;
+      margin-top: 20px;
     }
-
+    
     .btn {
-      padding: 0.6em 1.2em;
+      padding: 10px 20px;
       border-radius: 50px;
       font-weight: 500;
-      font-size: 0.7em;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 0.5em;
-      -webkit-appearance: none;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
     }
-
+    
     .btn-primary {
-      background-color: var(--color-gold);
-      color: black;
+      background: #ffcf0f;
+      color: #000;
     }
-
+    
     .btn-secondary {
-      background-color: transparent;
+      background: transparent;
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255,255,255,0.3);
     }
-
+    
     /* Contador regressivo */
     .countdown {
       display: flex;
-      gap: 0.5em;
-      margin-top: 1em;
+      gap: 8px;
+      margin: 15px 0;
     }
-
+    
     .countdown-item {
-      text-align: center;
-      background: rgba(255, 207, 15, 0.2);
-      padding: 0.3em 0.6em;
+      background: rgba(255,207,15,0.2);
+      padding: 5px 10px;
       border-radius: 5px;
-      min-width: 2.5em;
-      backdrop-filter: blur(5px);
+      text-align: center;
+      min-width: 50px;
     }
-
-    /* Media Queries para iOS */
-    @media only screen and (max-device-width: 812px) {
-      .movie-card {
-        height: 80vh;
-        max-width: 95vw;
-      }
-      
-      .content {
-        bottom: 3vmin;
-        left: 4vmin;
-        right: 4vmin;
-      }
-      
-      .movie-card h1 {
-        font-size: 1.6em;
-      }
-      
-      .synopsis {
-        font-size: 0.7em;
-      }
+    
+    .countdown-number {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffcf0f;
     }
-
-    /* iPhone X/XS/11 Pro */
-    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-      .movie-card {
-        height: 75vh;
-      }
+    
+    /* Mensagem de hover */
+    .hover-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.85);
+      color: #ffcf0f;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      pointer-events: none;
+      width: 80%;
+      max-width: 300px;
+      border: 2px solid #ffcf0f;
     }
-
-    /* iPad */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-      .movie-card {
-        height: 85vh;
-        max-width: 80vw;
+    
+    .movie-card:hover .hover-message {
+      opacity: 1;
+    }
+    
+    /* Modal WhatsApp */
+    .whatsapp-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .whatsapp-modal-content {
+      background: #1e1e1e;
+      padding: 25px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      border: 1px solid #ffcf0f;
+    }
+    
+    .whatsapp-link {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin: 20px 0 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-link:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+    }
+    
+    .whatsapp-link i {
+      margin-right: 8px;
+    }
+    
+    .close-modal {
+      background: transparent;
+      color: #ffcf0f;
+      border: 1px solid #ffcf0f;
+      padding: 8px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .close-modal:hover {
+      background: rgba(255,207,15,0.2);
+    }
+    
+    /* Responsivo */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
       }
       
-      .movie-card h1 {
-        font-size: 2em;
+      .details {
+        font-size: 0.8rem;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        justify-content: center;
+      }
+      
+      .whatsapp-modal-content {
+        padding: 20px;
       }
     }
   </style>
@@ -247,111 +271,80 @@
 <body>
   <div class="container animate__animated animate__fadeIn">
     <div class="movie-card">
-      <img src="https://github.com/MmdsDEV/Noite/blob/2f1b9213fc0d53ebebaceabdca956e88ffa36334/churras.jpeg" alt="Churras do MJ">
+      <img src="churras.jpeg" alt="Churras do MJ">
+      
+      <div class="hover-message animate__animated">
+        Não perca essa festa abençoada! 🎉
+      </div>
+      
       <div class="content">
         <h1>CHURRAS DO MJ <span>🍖🔥</span></h1>
         <div class="infos">
           <span>Quinta-feira • 18h</span>
         </div>
-        <div class="synopsis">
+        
+        <div class="details">
           <p>Vamos celebrar a vida e a comunhão com um churrasco abençoado! Traga sua alegria e seu apetite! <span>🙌</span></p>
           
           <div class="location">
             <i class="fas fa-map-marker-alt"></i>
             <span>Casa da Bárbara e do Rafael</span>
           </div>
-
+          
           <div class="location">
             <i class="fas fa-qrcode"></i>
-            <span><a href="https://maps.google.com/maps?q=-16.684844970703125%2C-49.207698822021484&z=17&hl=pt-BR" style="color: #ffcf0f; text-decoration: none;">Clique para ver localização no mapa</a></span>
-          </div>
-
-          <div class="carona-info">
-            <i class="fas fa-car"></i>
-            <span>Precisa de carona? Avise no grupo!</span>
+            <span><a href="https://maps.google.com/maps?q=-16.684844970703125%2C-49.207698822021484&z=17&hl=pt-BR" style="color: #ffcf0f; text-decoration: none;">Ver localização no mapa</a></span>
           </div>
           
           <div class="countdown">
             <div class="countdown-item">
               <div class="countdown-number" id="days">00</div>
-              <div class="countdown-label">dias</div>
+              <div>dias</div>
             </div>
             <div class="countdown-item">
               <div class="countdown-number" id="hours">00</div>
-              <div class="countdown-label">horas</div>
+              <div>horas</div>
             </div>
             <div class="countdown-item">
               <div class="countdown-number" id="minutes">00</div>
-              <div class="countdown-label">min</div>
+              <div>min</div>
             </div>
             <div class="countdown-item">
               <div class="countdown-number" id="seconds">00</div>
-              <div class="countdown-label">seg</div>
+              <div>seg</div>
             </div>
           </div>
-          
-          <div class="action-buttons">
-            <button class="btn btn-primary" onclick="confirmPresence()">
-              <i class="fas fa-check-circle"></i> Confirmar presença
-            </button>
-            <button class="btn btn-secondary" onclick="shareEvent()">
-              <i class="fas fa-share-alt"></i> Compartilhar
-            </button>
-          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="confirmPresence()">
+            <i class="fas fa-check-circle"></i> Confirmar presença
+          </button>
+          <button class="btn btn-secondary" onclick="shareEvent()">
+            <i class="fas fa-share-alt"></i> Compartilhar
+          </button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Modal WhatsApp -->
+  <div class="whatsapp-modal" id="whatsappModal">
+    <div class="whatsapp-modal-content">
+      <h3 style="color: #ffcf0f; margin-bottom: 15px;">Confirmar Presença</h3>
+      <p style="margin-bottom: 10px;">Clique no botão abaixo para confirmar sua presença no grupo do WhatsApp:</p>
+      <p style="font-size: 0.9em; color: #aaa; margin-bottom: 20px;">Você será redirecionado para o grupo oficial do evento</p>
+      
+      <a href="#" class="whatsapp-link" id="whatsappListLink">
+        <i class="fab fa-whatsapp"></i> Confirmar no WhatsApp
+      </a>
+      
+      <button class="close-modal" onclick="closeModal()">Fechar</button>
+    </div>
+  </div>
+
   <script>
-    // Detecção de iOS e ajustes
-    const isIOS = () => {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    };
-
-    // Prevenir comportamentos indesejados no iOS
-    if(isIOS()) {
-      document.addEventListener('touchmove', function(e) {
-        if(e.scale !== 1) e.preventDefault();
-      }, { passive: false });
-      
-      document.addEventListener('gesturestart', function(e) {
-        e.preventDefault();
-      });
-      
-      // Ajuste para a barra de segurança do iPhone X+
-      document.documentElement.style.setProperty(
-        '--sat', 'env(safe-area-inset-top)'
-      );
-      document.documentElement.style.setProperty(
-        '--sar', 'env(safe-area-inset-right)'
-      );
-      document.documentElement.style.setProperty(
-        '--sab', 'env(safe-area-inset-bottom)'
-      );
-      document.documentElement.style.setProperty(
-        '--sal', 'env(safe-area-inset-left)'
-      );
-    }
-
-    // Configuração do contador regressivo
-    document.addEventListener('DOMContentLoaded', function() {
-      const now = new Date();
-      const eventDate = new Date();
-      
-      // Próxima quinta-feira às 18h
-      eventDate.setDate(now.getDate() + ((4 + 7 - now.getDay()) % 7));
-      eventDate.setHours(18, 0, 0, 0);
-      
-      if (now > eventDate) {
-        eventDate.setDate(eventDate.getDate() + 7);
-      }
-      
-      setInterval(() => updateCountdown(eventDate), 1000);
-      updateCountdown(eventDate);
-    });
-
+    // Contador regressivo
     function updateCountdown(eventDate) {
       const now = new Date();
       const diff = eventDate - now;
@@ -375,25 +368,89 @@
       document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
     }
 
-    function confirmPresence() {
-      alert('Obrigado por confirmar sua presença no churrasco! 🍖 Vai ser uma bênção!');
+    // Configura data do evento (próxima quinta às 18h)
+    function setupCountdown() {
+      const now = new Date();
+      const eventDate = new Date();
+      
+      eventDate.setDate(now.getDate() + ((4 + 7 - now.getDay()) % 7));
+      eventDate.setHours(18, 0, 0, 0);
+      
+      if (now > eventDate) {
+        eventDate.setDate(eventDate.getDate() + 7);
+      }
+      
+      setInterval(() => updateCountdown(eventDate), 1000);
+      updateCountdown(eventDate);
     }
 
+    // Efeito hover para desktop
+    function setupHoverEffect() {
+      const card = document.querySelector('.movie-card');
+      const hoverMsg = document.querySelector('.hover-message');
+      
+      card.addEventListener('mouseenter', () => {
+        hoverMsg.classList.add('animate__fadeIn');
+        hoverMsg.classList.remove('animate__fadeOut');
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        hoverMsg.classList.remove('animate__fadeIn');
+        hoverMsg.classList.add('animate__fadeOut');
+      });
+      
+      // Para mobile: toque mostra a mensagem
+      card.addEventListener('click', () => {
+        hoverMsg.classList.toggle('animate__fadeIn');
+      });
+    }
+
+    // Função para confirmar presença via WhatsApp
+    function confirmPresence() {
+      // LINK DO SEU GRUPO DO WHATSAPP - SUBSTITUA PELO LINK REAL
+      const whatsappGroupLink = "https://chat.whatsapp.com/DMoTNHWH0mj3eums98vMFM";
+      
+      // Atualiza o link no modal
+      document.getElementById('whatsappListLink').href = whatsappGroupLink;
+      
+      // Mostra o modal
+      document.getElementById('whatsappModal').style.display = 'flex';
+      
+      // Opcional: Redirecionar diretamente sem mostrar o modal
+      // window.open(whatsappGroupLink, '_blank');
+    }
+    
+    function closeModal() {
+      document.getElementById('whatsappModal').style.display = 'none';
+    }
+
+    // Compartilhar evento
     function shareEvent() {
       if (navigator.share) {
         navigator.share({
-          title: 'Churras do MJ - Comunhão e Alegria',
-          text: 'Venha participar do nosso churrasco abençoado! Quinta-feira às 18h na casa da Bárbara e do Rafael.',
+          title: 'Churras do MJ',
+          text: 'Venha para o Churras do MJ - Quinta-feira às 18h',
           url: window.location.href
-        }).catch(err => {
-          console.log('Erro ao compartilhar:', err);
         });
       } else {
         // Fallback para WhatsApp
-        const shareUrl = `https://wa.me/?text=Venha%20para%20o%20Churras%20do%20MJ!%20Quinta-feira%20às%2018h%20na%20casa%20da%20Bárbara%20e%20do%20Rafael.%20${encodeURIComponent(window.location.href)}`;
-        window.open(shareUrl, '_blank');
+        const text = encodeURIComponent('Venha para o Churras do MJ! Quinta-feira às 18h na casa da Bárbara e do Rafael. ' + window.location.href);
+        window.open(`https://wa.me/?text=${text}`, '_blank');
       }
     }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', () => {
+      setupCountdown();
+      setupHoverEffect();
+      
+      // Fechar modal ao clicar fora
+      document.getElementById('whatsappModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('whatsappModal')) {
+          closeModal();
+        }
+      });
+    });
   </script>
 </body>
-</html>v
+</html>
