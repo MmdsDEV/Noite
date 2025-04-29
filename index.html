@@ -2,163 +2,60 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movimento Jovem - Noite de Adoração</title>
+  <!-- Meta tags otimizadas para iOS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Churras MJ">
+  <title>Churras do MJ - Comunhão e Alegria</title>
+  
+  <!-- Favicon para Apple -->
+  <link rel="apple-touch-icon" href="icon.png">
+  
+  <!-- CSS Externos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    /* Seu CSS aqui (o mesmo que você forneceu) */
-    @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
-
-    /*=================*/
-    /*     Values      */
-    /*=================*/
-    :root {
-      --color-gray-50: #f8fafc;
-      --color-gray-100: #f1f5f9;
-      --color-gray-200: #e1e7ef;
-      --color-gray-300: #cbd5e1;
-      --color-gray-400: #94a3b8;
-      --color-gray-500: #65758b;
-      --color-gray-600: #48566a;
-      --color-gray-700: #344256;
-      --color-gray-800: #1d283a;
-      --color-gray-900: #0f1729;
-      --color-gray-950: #020617;
-      --color-primary-50: #f0f9ff;
-      --color-primary-100: #e0f3ff;
-      --color-primary-200: #b8e6ff;
-      --color-primary-300: #7ad5ff;
-      --color-primary-400: #33c2ff;
-      --color-primary-500: #00a7f5;
-      --color-primary-600: #0085c7;
-      --color-primary-700: #006aa3;
-      --color-primary-800: #005a8a;
-      --color-primary-900: #004e7a;
-      --color-primary-950: #003152;
-      --color-danger-50: #fff0f0;
-      --color-danger-100: #ffe0e0;
-      --color-danger-200: #ffc7c7;
-      --color-danger-300: #ffa3a3;
-      --color-danger-400: #ff6b6b;
-      --color-danger-500: #f53d3d;
-      --color-danger-600: #f31212;
-      --color-danger-700: #d60000;
-      --color-danger-800: #b30000;
-      --color-danger-900: #9e0000;
-      --color-danger-950: #4d0000;
-      --color-success-50: #f0fff4;
-      --color-success-100: #dbffe8;
-      --color-success-200: #b3ffcd;
-      --color-success-300: #75ffa8;
-      --color-success-400: #34f47a;
-      --color-success-500: #0bda57;
-      --color-success-600: #00b843;
-      --color-success-700: #009436;
-      --color-success-800: #007a2f;
-      --color-success-900: #006629;
-      --color-success-950: #003315;
-      --color-gold-50: #fffde6;
-      --color-gold-100: #fffac2;
-      --color-gold-200: #fff18a;
-      --color-gold-300: #ffe047;
-      --color-gold-400: #ffcf0f;
-      --color-gold-500: #f0b400;
-      --color-gold-600: #cc8b00;
-      --color-gold-700: #a86200;
-      --color-gold-800: #944f00;
-      --color-gold-900: #853e00;
-      --color-gold-950: #471f00;
-      --spacing-01: 4px;
-      --spacing-02: 8px;
-      --spacing-03: 12px;
-      --spacing-04: 16px;
-      --spacing-05: 20px;
-      --spacing-06: 24px;
-      --spacing-07: 28px;
-      --spacing-08: 32px;
-      --spacing-09: 40px;
-    }
-
-    /*=================*/
-    /*      Theme      */
-    /*=================*/
-    :root {
-      color-scheme: light dark;
-      --font-color-default: var(--color-gray-700);
-      --font-color-strong: var(--color-gray-900);
-      --font-color-light: var(--color-gray-400);
-      --background-page: var(--color-gray-50);
-      --border-light: 1px solid var(--font-color-light);
-      --border-strong: 2px solid var(--font-color-strong);
-      --border-radius-sm: var(--spacing-01);
-      --border-radius-md: var(--spacing-02);
-      --border-radius-lg: var(--spacing-03);
-      --shadow-color-hsl: 222 47% 11%;
-      --shadow-opacity: 0.15;
-      --shadow-color: hsl(var(--shadow-color-hsl) / var(--shadow-opacity));
-      --shadow-sm: 0px 4px 6px var(--shadow-color);
-      --shadow-md: 0px 8px 12px var(--shadow-color), 0px 1px 3px var(--shadow-color);
-      --shadow-lg: 0px 16px 24px var(--shadow-color),
-        0px 2px 6px var(--shadow-color);
-      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-      --ease-out: cubic-bezier(0, 0, 0.2, 1);
-      --ease-in: cubic-bezier(0.4, 0, 1, 1);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --font-color-default: var(--color-gray-200);
-        --font-color-strong: var(--color-gray-50);
-        --font-color-light: var(--color-gray-500);
-        --background-page: var(--color-gray-900);
-        --shadow-color-hsl: 0 0% 0%;
-        --shadow-opacity: 0.8;
-      }
-    }
-
-    /*=======================*/
-    /*      Global Style     */
-    /*=======================*/
-    html,
-    body {
-      height: 100%;
-    }
-
+    /* Reset CSS para iOS */
     * {
-      padding: 0;
-      margin: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
       box-sizing: border-box;
     }
-
+    
     html {
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      height: 100%;
       font-size: 62.5%;
     }
-
+    
     body {
+      -webkit-overflow-scrolling: touch;
+      margin: 0;
+      padding: 0;
+      height: 100%;
       display: grid;
       place-items: center;
       font-family: "Rubik", sans-serif;
       font-size: 170%;
       background: radial-gradient(circle at 50% 50%, #192233 20%, #000);
-      color: var(--font-color-default);
+      color: white;
       line-height: 1.5;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong {
-      color: var(--font-color-strong);
+    /* Variáveis de cor */
+    :root {
+      --color-gold: #ffcf0f;
+      --color-gold-dark: #e6b800;
+      --color-text: white;
+      --color-bg: rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 16px 24px rgba(0, 0, 0, 0.5);
     }
 
-    /*=======================*/
-    /*    Invitation Card    */
-    /*=======================*/
+    /* Container principal */
     .container {
       width: 100%;
       max-width: 1200px;
@@ -168,155 +65,82 @@
       align-items: center;
     }
 
+    /* Card do convite */
     .movie-card {
       --transition-duration: 700ms;
-      color: white;
       position: relative;
       border-radius: 0.6em;
       overflow: hidden;
       font-size: 120%;
-      height: min(21em, 90vh);
-      max-width: 90vw;
+      height: min(21em, 80vh);
+      max-width: 95vw;
       aspect-ratio: 16/9;
-      box-shadow: var(--shadow-lg), var(--shadow-lg), var(--shadow-lg);
+      box-shadow: var(--shadow-lg);
       transition: transform var(--transition-duration);
       font-family: 'Poppins', sans-serif;
+      background-color: black;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
     }
 
+    /* Imagem de fundo - ajuste para iOS */
+    .movie-card img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      top: 0;
+      left: 0;
+      -webkit-user-drag: none;
+    }
+
+    /* Overlay para melhor legibilidade */
     .movie-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 80% -150%, transparent 60%, rgba(0, 0, 0, 0.5));
-      transition: box-shadow var(--transition-duration);
-      mix-blend-mode: overlay;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+      mix-blend-mode: multiply;
     }
 
-    .movie-card img {
-      height: 100%;
-      width: 100%;
-      transition: transform var(--transition-duration);
-      object-fit: cover;
-      object-position: center;
-    }
-
+    /* Conteúdo do convite */
     .content {
-      z-index: 1;
+      z-index: 2;
       position: absolute;
       bottom: min(2.5em, 6vmin);
       left: min(3em, 8vmin);
       right: min(3em, 8vmin);
       text-align: left;
       transition: transform var(--transition-duration) var(--ease-in-out);
-    }
-
-    .content > * {
-      position: relative;
-      will-change: transform;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     }
 
     .movie-card h1 {
       font-size: 1.8em;
-      color: inherit;
-      margin: 0;
-      font-weight: 600;
+      color: var(--color-text);
+      margin: 0 0 0.3em 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .infos {
       font-size: 0.8em;
       font-weight: bold;
-      color: #eee;
+      color: var(--color-gold);
       display: flex;
       gap: 0.35em;
       align-items: flex-end;
-    }
-
-    .infos span {
-      line-height: 1;
     }
 
     .synopsis {
       font-size: 0.8em;
       line-height: 1.4;
       margin-block: 0.75em;
-      transition-delay: calc(var(--transition-duration) / 8);
-      transition-property: opacity, transform;
-      transition-duration: calc(var(--transition-duration) / 2);
     }
 
-    .icons {
-      display: flex;
-      gap: 0.5em;
-    }
-
-    .icons svg {
-      height: 1.2em;
-      width: auto;
-      fill: white;
-      transition-property: opacity, transform;
-      transition-duration: calc(var(--transition-duration) / 2);
-      transition-delay: 0s;
-    }
-
-    .emoji {
-      font-size: 1em;
-    }
-
-    /* Hover Effects */
-    .movie-card:hover {
-      transform: scale(1.03);
-    }
-
-    .movie-card:hover img {
-      transform: scale(1.03);
-    }
-
-    .movie-card:hover .synopsis {
-      transition-duration: var(--transition-duration);
-      transition-delay: calc(var(--transition-duration) / 3);
-    }
-
-    .movie-card:hover .icons svg:nth-child(1) {
-      transition-delay: calc(var(--transition-duration) / 1.8);
-    }
-
-    .movie-card:not(:hover) .synopsis {
-      opacity: 0;
-      transform: translateY(1em);
-    }
-
-    .movie-card:not(:hover) .icons svg {
-      opacity: 0;
-      transform: translateY(50%);
-    }
-
-    .movie-card:not(:hover) .content {
-      transform: translateY(calc(100% - 4.5em));
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .movie-card {
-        height: min(25em, 90vh);
-        font-size: 100%;
-      }
-      
-      .content {
-        bottom: min(1.5em, 4vmin);
-        left: min(1.5em, 4vmin);
-        right: min(1.5em, 4vmin);
-      }
-      
-      .movie-card h1 {
-        font-size: 1.5em;
-      }
-      
-      .synopsis {
-        font-size: 0.7em;
-      }
-    }
-
-    /* New Additions */
+    /* Elementos de informação */
     .location {
       display: flex;
       align-items: center;
@@ -327,8 +151,10 @@
 
     .location i {
       font-size: 1.2em;
+      color: var(--color-gold);
     }
 
+    /* Botões */
     .action-buttons {
       display: flex;
       gap: 1em;
@@ -346,11 +172,12 @@
       display: flex;
       align-items: center;
       gap: 0.5em;
+      -webkit-appearance: none;
     }
 
     .btn-primary {
-      background-color: #4CAF50;
-      color: white;
+      background-color: var(--color-gold);
+      color: black;
     }
 
     .btn-secondary {
@@ -359,20 +186,7 @@
       border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-primary:hover {
-      background-color: #3e8e41;
-    }
-
-    .btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    /* Countdown Timer */
+    /* Contador regressivo */
     .countdown {
       display: flex;
       gap: 0.5em;
@@ -381,39 +195,80 @@
 
     .countdown-item {
       text-align: center;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 207, 15, 0.2);
       padding: 0.3em 0.6em;
       border-radius: 5px;
       min-width: 2.5em;
+      backdrop-filter: blur(5px);
     }
 
-    .countdown-number {
-      font-weight: bold;
-      font-size: 1.2em;
+    /* Media Queries para iOS */
+    @media only screen and (max-device-width: 812px) {
+      .movie-card {
+        height: 80vh;
+        max-width: 95vw;
+      }
+      
+      .content {
+        bottom: 3vmin;
+        left: 4vmin;
+        right: 4vmin;
+      }
+      
+      .movie-card h1 {
+        font-size: 1.6em;
+      }
+      
+      .synopsis {
+        font-size: 0.7em;
+      }
     }
 
-    .countdown-label {
-      font-size: 0.6em;
-      opacity: 0.8;
+    /* iPhone X/XS/11 Pro */
+    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+      .movie-card {
+        height: 75vh;
+      }
+    }
+
+    /* iPad */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      .movie-card {
+        height: 85vh;
+        max-width: 80vw;
+      }
+      
+      .movie-card h1 {
+        font-size: 2em;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container animate__animated animate__fadeIn">
     <div class="movie-card">
-      <img src="img2.jpeg" alt="Noite de Adoração">
+      <img src="churras.jpeg" alt="Churras do MJ">
       <div class="content">
-        <h1>Sua presença é um presente precioso para nós! <span class="emoji">❤️</span></h1>
+        <h1>CHURRAS DO MJ <span>🍖🔥</span></h1>
         <div class="infos">
-          <span>Quinta-feira • 20h</span>
+          <span>Quinta-feira • 18h</span>
         </div>
         <div class="synopsis">
-          <p>Queremos compartilhar esse momento especial com você e sentir a alegria de estarmos juntos, unidos em oração e adoração <span class="emoji">🙏</span>.</p>
-          <p>Nesta <strong>quinta-feira, às 20h</strong>, vamos nos reunir para uma noite de adoração ao Santíssimo Sacramento.</p>
+          <p>Vamos celebrar a vida e a comunhão com um churrasco abençoado! Traga sua alegria e seu apetite! <span>🙌</span></p>
           
           <div class="location">
             <i class="fas fa-map-marker-alt"></i>
-            <span>Nossa Senhora Aparecida</span>
+            <span>Casa da Bárbara e do Rafael</span>
+          </div>
+
+          <div class="location">
+            <i class="fas fa-qrcode"></i>
+            <span><a href="https://maps.google.com/maps?q=-16.684844970703125%2C-49.207698822021484&z=17&hl=pt-BR" style="color: #ffcf0f; text-decoration: none;">Clique para ver localização no mapa</a></span>
+          </div>
+
+          <div class="carona-info">
+            <i class="fas fa-car"></i>
+            <span>Precisa de carona? Avise no grupo!</span>
           </div>
           
           <div class="countdown">
@@ -444,35 +299,57 @@
             </button>
           </div>
         </div>
-        <div class="icons">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-          </svg>
-        </div>
       </div>
     </div>
   </div>
 
   <script>
+    // Detecção de iOS e ajustes
+    const isIOS = () => {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    };
+
+    // Prevenir comportamentos indesejados no iOS
+    if(isIOS()) {
+      document.addEventListener('touchmove', function(e) {
+        if(e.scale !== 1) e.preventDefault();
+      }, { passive: false });
+      
+      document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+      });
+      
+      // Ajuste para a barra de segurança do iPhone X+
+      document.documentElement.style.setProperty(
+        '--sat', 'env(safe-area-inset-top)'
+      );
+      document.documentElement.style.setProperty(
+        '--sar', 'env(safe-area-inset-right)'
+      );
+      document.documentElement.style.setProperty(
+        '--sab', 'env(safe-area-inset-bottom)'
+      );
+      document.documentElement.style.setProperty(
+        '--sal', 'env(safe-area-inset-left)'
+      );
+    }
+
+    // Configuração do contador regressivo
     document.addEventListener('DOMContentLoaded', function() {
-      // Configura a data do evento (próxima quinta-feira às 20h)
       const now = new Date();
       const eventDate = new Date();
       
-      // Encontra a próxima quinta-feira
+      // Próxima quinta-feira às 18h
       eventDate.setDate(now.getDate() + ((4 + 7 - now.getDay()) % 7));
-      eventDate.setHours(20, 0, 0, 0);
+      eventDate.setHours(18, 0, 0, 0);
       
-      // Se já passou da quinta-feira desta semana, vai para a próxima
       if (now > eventDate) {
         eventDate.setDate(eventDate.getDate() + 7);
       }
       
-      // Atualiza o contador a cada segundo
       setInterval(() => updateCountdown(eventDate), 1000);
-      updateCountdown(eventDate); // Chama imediatamente para evitar atraso inicial
+      updateCountdown(eventDate);
     });
 
     function updateCountdown(eventDate) {
@@ -480,7 +357,6 @@
       const diff = eventDate - now;
       
       if (diff <= 0) {
-        // Evento ocorrendo agora
         document.getElementById('days').textContent = '00';
         document.getElementById('hours').textContent = '00';
         document.getElementById('minutes').textContent = '00';
@@ -500,41 +376,24 @@
     }
 
     function confirmPresence() {
-      alert('Obrigado por confirmar sua presença! Estamos ansiosos para vê-lo lá!');
-      // Aqui você poderia adicionar uma chamada para um backend ou Google Forms
+      alert('Obrigado por confirmar sua presença no churrasco! 🍖 Vai ser uma bênção!');
     }
 
     function shareEvent() {
       if (navigator.share) {
         navigator.share({
-          title: 'Noite de Adoração - Movimento Jovem',
-          text: 'Venha participar conosco de uma noite especial de adoração!',
+          title: 'Churras do MJ - Comunhão e Alegria',
+          text: 'Venha participar do nosso churrasco abençoado! Quinta-feira às 18h na casa da Bárbara e do Rafael.',
           url: window.location.href
         }).catch(err => {
           console.log('Erro ao compartilhar:', err);
         });
       } else {
-        // Fallback para navegadores que não suportam a API de compartilhamento
-        const shareUrl = `https://wa.me/?text=Venha%20participar%20da%20Noite%20de%20Adoração%20do%20Movimento%20Jovem!%20${encodeURIComponent(window.location.href)}`;
+        // Fallback para WhatsApp
+        const shareUrl = `https://wa.me/?text=Venha%20para%20o%20Churras%20do%20MJ!%20Quinta-feira%20às%2018h%20na%20casa%20da%20Bárbara%20e%20do%20Rafael.%20${encodeURIComponent(window.location.href)}`;
         window.open(shareUrl, '_blank');
       }
     }
-
-    // Efeito de parallax para desktop
-    if (window.innerWidth > 768) {
-      const card = document.querySelector('.movie-card');
-      
-      document.addEventListener('mousemove', (e) => {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) scale(1.03)`;
-      });
-
-      // Reseta quando o mouse sai
-      document.addEventListener('mouseleave', () => {
-        card.style.transform = 'scale(1.03)';
-      });
-    }
   </script>
 </body>
-</html>
+</html>v
